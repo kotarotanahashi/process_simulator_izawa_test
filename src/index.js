@@ -163,21 +163,9 @@ function StockTable(props){
 
 
 
-function MyDialog(props){
+function NewProcessDialog(props){
   
-  const [name, setName] = React.useState("");
   const [open, setOpen] = React.useState(false);
-
-  let text_fields = (
-    <TextField
-      autoFocus
-      margin="dense"
-      id="stock_name"
-      label="Stock名"
-      onChange={e => setName(e.target.value)}
-      fullWidth
-    />
-  );
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -188,30 +176,19 @@ function MyDialog(props){
   };
 
   const handleSubmit = () => {
-    props.handleSubmit({name});
+    props.handleSubmit();
     handleClose();
   };
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>
-        Stockを追加
-      </Button>
-
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Stockを追加</DialogTitle>
+        <DialogTitle id="form-dialog-title">{props.name}を追加</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            追加するStockの情報を入力してください。
+            追加する{props.name}の情報を入力してください。
           </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="stock_name"
-            label="Stock名"
-            onChange={e => setName(e.target.value)}
-            fullWidth
-          />
+          {props.text_fields}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleSubmit} color="primary">
@@ -222,11 +199,16 @@ function MyDialog(props){
           </Button>
         </DialogActions>
       </Dialog>
+
+      <Button onClick={handleClickOpen} color="primary" variant="contained">
+        {props.name}を追加
+      </Button>
       </div>
   );
 }
 
-class ProcessManager extends React.Component {
+
+class StockManager extends React.Component {
   
   constructor(props){
     super(props);
@@ -234,12 +216,25 @@ class ProcessManager extends React.Component {
       rows: [
         createStock('Frozen yoghurt'),
         createStock('Ice cream sandwich')
-      ]
+      ],
+      name: ""
     }
+    this.process_name = "Stock";
+
+    this.text_fields = (
+      <TextField
+        autoFocus
+        margin="dense"
+        id="stock_name"
+        label="Stock名"
+        onChange={e => this.setState({name: e.target.value})}
+        fullWidth
+      />
+    );
   }
 
   add_process(ret){
-    let new_row = createStock(ret.name);
+    let new_row = createStock(this.state.name);
     this.setState(state => ({
       rows: state.rows.concat(new_row),
     }));
@@ -248,17 +243,87 @@ class ProcessManager extends React.Component {
   render() {
     return (
       <div>
-        <MyDialog handleSubmit={(ret) => this.add_process(ret)}/>
+        <h3>{this.process_name}一覧</h3>
+        <NewProcessDialog
+          handleSubmit={(ret) => this.add_process(ret)}
+          text_fields={this.text_fields}
+          name="Stock"
+        />
         <StockTable rows={this.state.rows} />
       </div>
     );
   }
 }
 
+
+class EndPointManager extends React.Component {
+  
+  constructor(props){
+    super(props);
+    this.state = {
+      rows: [
+        this.createEndPoint('end_point')
+      ]
+    }
+
+    this.process_name = "EndPoint";
+    this.name = null;
+
+    this.text_fields = (
+      <TextField
+        autoFocus
+        margin="dense"
+        id="stock_name"
+        label="EndPoint名"
+        onChange={e => {this.name = e.target.value}}
+        fullWidth
+      />
+    );
+  }
+
+  createEndPoint(name) {
+    return { name };
+  }
+
+  add_process(name){
+    let new_row = this.createEndPoint(name);
+    this.setState(state => ({
+      rows: state.rows.concat(new_row),
+    }));
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>{this.process_name}一覧</h3>
+        <NewProcessDialog
+          handleSubmit={(ret) => this.add_process(ret)}
+          text_fields={this.text_fields}
+          name="EndPoint"
+        />
+        <StockTable rows={this.state.rows} />
+      </div>
+    );
+  }
+}
+
+class App extends React.Component {
+  
+  render(){  
+    return(
+      <div>
+        <StockManager />
+        <br />
+        <EndPointManager />
+      </div>
+    );
+  };
+}
+
 // ========================================
 
 ReactDOM.render(
-  <ProcessManager />,
+  <App />,
   document.getElementById('root')
 );
 
