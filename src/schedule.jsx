@@ -176,11 +176,11 @@ export default class SchedulesManager extends React.Component {
     render(){
         return(
             <div>
-                <h2>スケジュール管理</h2>
+                <h2>加工工程管理</h2>
                 <NewProcessDialog
                     handleSubmit={() => this.addSchedule()}
                     text_fields={this.text_fields}
-                    name="新規スケジュール"
+                    name="新規工程"
                 />
                 {Object.keys(this.state.schedules).map( schedule_id => {
                     let s = this.state.schedules[schedule_id];

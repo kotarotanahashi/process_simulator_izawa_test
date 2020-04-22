@@ -8,6 +8,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import ItemManager from './item_manager.jsx';
 import SchedulesManager from './schedule.jsx';
 import AppFrame from './app_frame.jsx';
+import SimulationManager from './simulation.jsx';
+
+
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -74,8 +77,7 @@ function SchedulePage(){
 
 function SimulationPage(){
   return (
-    <div>
-    </div>
+    <SimulationManager />
   );
 }
 

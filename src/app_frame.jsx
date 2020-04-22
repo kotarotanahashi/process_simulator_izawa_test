@@ -79,7 +79,7 @@ export default function AppFrame(props){
           </ListItem>
           <ListItem component="a" href="/schedule">
             <ListItemIcon><AccessTimeIcon /></ListItemIcon>
-            <ListItemText primary="スケジュール管理" />
+            <ListItemText primary="加工工程管理" />
           </ListItem>
           <ListItem component="a" href="/process">
             <ListItemIcon><InboxIcon /></ListItemIcon>
