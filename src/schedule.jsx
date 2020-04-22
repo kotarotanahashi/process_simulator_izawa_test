@@ -177,9 +177,6 @@ export default class SchedulesManager extends React.Component {
         return(
             <div>
                 <h2>スケジュール管理</h2>
-                {/*<Button onClick={this.addSchedule} color="primary" variant="contained">
-                新規スケジュールを追加
-                </Button>*/}
                 <NewProcessDialog
                     handleSubmit={() => this.addSchedule()}
                     text_fields={this.text_fields}
