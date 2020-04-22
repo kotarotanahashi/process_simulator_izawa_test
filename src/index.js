@@ -5,20 +5,12 @@ import './index.css';
 // BrowserRouter
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import {Comp1, Comp2} from './home_page.jsx';
 import ItemManager from './item_manager.jsx';
+import SchedulesManager from './schedule.jsx';
 
 
-let Home = () => {
-  return (
-    <div>
-      <h1>Welcome to home page</h1>
-      <a href="/process">プロセスを管理</a>
-      <Comp1 />
-      <Comp2 />
-    </div>
-  );
-}
+
+
 
 function ProcessPage(){
   
@@ -46,7 +38,7 @@ function ProcessPage(){
   );
 }
 
-function ConfigPage(){
+function ProcessConfigPage(){
   
   let plating_conf_cols = [
       {name: "bath_time", ja_name: "浸す時間"}
@@ -66,6 +58,27 @@ function ConfigPage(){
   );
 }
 
+function SchedulePage(){
+  
+  return (
+    <div>
+      <a href="/">Homeにもどる</a>
+      <SchedulesManager />
+    </div>
+  );
+}
+
+let Home = () => {
+  return (
+    <div>
+      <h1>Welcome to home page</h1>
+      <a href="/process">プロセスを管理</a><br/>
+      <a href="/process_config">プロセス設定を管理</a><br/>
+      <a href="/schedule">スケジュールを管理</a>
+    </div>
+  );
+}
+
 
 class App extends React.Component {
   render(){
@@ -73,8 +86,9 @@ class App extends React.Component {
       <BrowserRouter>
       <div>
         <Route path="/" exact component={Home} />
-        <Route path="/process"  component={ProcessPage} />
-        <Route path="/conf"  component={ConfigPage} />
+        <Route path="/process" component={ProcessPage} />
+        <Route path="/process_config" component={ProcessConfigPage} />
+        <Route path="/schedule" component={SchedulePage} />
       </div>
       </BrowserRouter>
     );

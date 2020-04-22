@@ -36,7 +36,7 @@ function TableTemplate(props){
   );
 }
 
-function ProcessTable(props){
+export function ProcessTable(props){
   let header_row = (
     <TableRow>
       {props.cols.map((col) => (
@@ -62,7 +62,7 @@ function ProcessTable(props){
   return TableTemplate({header_row, body_rows});
 }
 
-function NewProcessDialog(props){
+export function NewProcessDialog(props){
   
   const [open, setOpen] = React.useState(false);
 
