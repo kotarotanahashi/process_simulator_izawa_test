@@ -133,8 +133,8 @@ function App(props){
   );
 }
 
-//ReactDOM.render(
-render(
+ReactDOM.render(
+//render(
 <ThemeProvider theme={theme}>
     <App />
   </ThemeProvider>,
