@@ -25,25 +25,38 @@ const theme = createMuiTheme({
 
 function ProcessPage(){
   
-  let stock_cols = [
+  /*let stock_cols = [
       {name: "name", ja_name: "名前"}
   ]
   
   let endpoint_cols = [
       {name: "name", ja_name: "名前"}
-  ]
+  ]*/
 
   let plating_cols = [
       {name: "name", ja_name: "名前"},
       {name: "length", ja_name: "メッキ曹の数"},
-      {name: "time", ja_name: "時刻"}
+      {name: "time", ja_name: "利用可能時刻"}
   ]
+
+  let oven_cols = [
+      {name: "name", ja_name: "名前"},
+      {name: "time", ja_name: "利用可能時刻"}
+  ]
+
+  let init_plating_rows = [
+    {name: "メッキ曹1", length: 34, time: "07:30"}
+  ];
+
+  let init_oven_rows = [
+    {name: "オーブン1", time: "07:30"},
+    {name: "オーブン2", time: "07:30"}
+  ];
 
   return (
     <div>
-      <ItemManager name="plating" cols={plating_cols} />
-      <ItemManager name="stock" cols={stock_cols} />
-      <ItemManager name="end_point" cols={endpoint_cols} />
+      <ItemManager name="plating" rows={init_plating_rows} title="メッキ曹一覧" button_text="メッキ曹を新規登録" cols={plating_cols} />
+      <ItemManager name="oven" rows={init_oven_rows} title="オーブン一覧" button_text="オーブンを新規登録" cols={oven_cols} />
     </div>
   );
 }
@@ -51,7 +64,7 @@ function ProcessPage(){
 function ProcessConfigPage(){
   
   let plating_conf_cols = [
-      {name: "bath_time", ja_name: "浸す時間"}
+      {name: "bath_time", ja_name: "メッキ時間(秒)"}
   ]
   
   let oven_conf_cols = [
@@ -59,10 +72,24 @@ function ProcessConfigPage(){
       {name: "baking_time", ja_name: "ベーキング時間(分)"}
   ]
 
+  let init_plating_rows = [
+    {bath_time: 120},
+    {bath_time: 140},
+    {bath_time: 150},
+    {bath_time: 180}
+  ];
+
+  let init_oven_rows = [
+    {name: "オーブン1", time: "07:30"},
+    {name: "オーブン2", time: "07:30"}
+  ];
+
+  
+
   return (
     <div>
-      <ItemManager name="plating_conf" cols={plating_conf_cols} />
-      <ItemManager name="oven_conf" cols={oven_conf_cols} />
+      <ItemManager name="plating_conf" rows={init_plating_rows} title="メッキ曹の設定一覧" button_text="メッキ曹の設定を追加" cols={plating_conf_cols} />
+      <ItemManager name="oven_conf" title="オーブンの設定一覧" button_text="オーブンの設定を追加"　cols={oven_conf_cols} />
     </div>
   );
 }
@@ -83,7 +110,7 @@ function SimulationPage(){
 
 let Home = () => {
   return (
-    <h1>伊澤シミュレータ v0.0.1</h1>
+    <h1>生産プロセスシミュレータ IZAWA v0.0.1</h1>
   );
 }
 

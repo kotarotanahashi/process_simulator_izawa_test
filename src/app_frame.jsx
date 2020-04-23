@@ -115,7 +115,7 @@ export default function AppFrame(props){
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            IZAWA 生産プロセスシミュレータ
+            生産プロセスシミュレータ IZAWA
           </Typography>
         </Toolbar>
       </AppBar>

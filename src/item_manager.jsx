@@ -82,10 +82,10 @@ export function NewProcessDialog(props){
   return (
     <div>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">{props.name}を追加</DialogTitle>
+        <DialogTitle id="form-dialog-title">{props.button_text}</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            追加する{props.name}の情報を入力してください。
+            情報を入力してください。
           </DialogContentText>
           {props.text_fields}
         </DialogContent>
@@ -100,7 +100,7 @@ export function NewProcessDialog(props){
       </Dialog>
 
       <Button onClick={handleClickOpen} color="primary" variant="contained">
-        {props.name}を追加
+        {props.button_text}
       </Button>
       </div>
   );
@@ -114,9 +114,17 @@ export default class ItemManager extends React.Component {
 
       this.cols = props.cols;
 
-      this.state = {
-        rows: []
+      let init_rows = [];
+      if(props.rows){
+        init_rows = props.rows;
       }
+      
+      this.state = {
+        rows: init_rows
+      }
+
+      this.title = props.title;
+      this.button_text = props.button_text;
   
       this.process_name = props.name;
 
@@ -147,11 +155,11 @@ export default class ItemManager extends React.Component {
     render() {
       return(
         <div>
-          <h3>{this.process_name}一覧</h3>
+          <h3>{this.title}</h3>
           <NewProcessDialog
             handleSubmit={(ret) => this.add_process(ret)}
             text_fields={this.text_fields}
-            name={this.process_name}
+            button_text={this.button_text}
           />
           <ProcessTable rows={this.state.rows} cols={this.cols} />
         </div>

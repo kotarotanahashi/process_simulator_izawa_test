@@ -99,7 +99,7 @@ class ScheduleManager extends React.Component {
           <NewProcessDialog
             handleSubmit={(ret) => this.add_step()}
             text_fields={this.text_fields}
-            name={this.schedule_name}
+            button_text={this.schedule_name + "に新規ステップを追加"}
           />
           <ProcessTable rows={this.state.rows} cols={this.cols} />
         </div>
@@ -180,7 +180,7 @@ export default class SchedulesManager extends React.Component {
                 <NewProcessDialog
                     handleSubmit={() => this.addSchedule()}
                     text_fields={this.text_fields}
-                    name="新規工程"
+                    button_text="新規工程を追加"
                 />
                 {Object.keys(this.state.schedules).map( schedule_id => {
                     let s = this.state.schedules[schedule_id];
