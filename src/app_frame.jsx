@@ -79,7 +79,11 @@ export default function AppFrame(props){
         <div className={classes.toolbar} />
         <Divider />
         <List>
-        <ListItem button onClick={() => handleClick("simulation")}>
+          <ListItem button onClick={() => handleClick("home")}>
+            <ListItemIcon><PlayCircleOutlineIcon /></ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
+          <ListItem button onClick={() => handleClick("simulation")}>
             <ListItemIcon><PlayCircleOutlineIcon /></ListItemIcon>
             <ListItemText primary="シミュレーション" />
           </ListItem>

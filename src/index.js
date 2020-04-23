@@ -116,12 +116,15 @@ let Home = () => {
 }
 
 function App(props){
-  let [page, setPage] = React.useState("process");
+  let [page, setPage] = React.useState("home");
 
 
   let content = (
     <div>
       <br/><br/><br/>
+      {page == "home" &&
+        <Home />
+      }
       {page == "process" &&
         <ProcessPage />
       }
