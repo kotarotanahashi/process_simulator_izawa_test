@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { render } from 'react-snapshot';
 
 // BrowserRouter
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -80,16 +81,16 @@ function ProcessConfigPage(){
   ];
 
   let init_oven_rows = [
-    {name: "オーブン1", time: "07:30"},
-    {name: "オーブン2", time: "07:30"}
+    {schedule_id: 1, baking_time: 180},
+    {schedule_id: 1, baking_time: 120},
+    {schedule_id: 2, baking_time: 120},
+    {schedule_id: 2, baking_time: 180}
   ];
-
-  
 
   return (
     <div>
       <ItemManager name="plating_conf" rows={init_plating_rows} title="メッキ曹の設定一覧" button_text="メッキ曹の設定を追加" cols={plating_conf_cols} />
-      <ItemManager name="oven_conf" title="オーブンの設定一覧" button_text="オーブンの設定を追加"　cols={oven_conf_cols} />
+      <ItemManager name="oven_conf" rows={init_oven_rows} title="オーブンの設定一覧" button_text="オーブンの設定を追加"　cols={oven_conf_cols} />
     </div>
   );
 }
@@ -120,10 +121,10 @@ function App(props){
     <div>
       <br/><br/><br/>
       <Route path="/" exact component={Home} />
-      <Route path="/process" component={ProcessPage} />
-      <Route path="/process_config" component={ProcessConfigPage} />
-      <Route path="/schedule" component={SchedulePage} />
-      <Route path="/simulation" component={SimulationPage} />
+      <Route path="/process.html" component={ProcessPage} />
+      <Route path="/process_config.html" component={ProcessConfigPage} />
+      <Route path="/schedule.html" component={SchedulePage} />
+      <Route path="/simulation.html" component={SimulationPage} />
     </div>
     </BrowserRouter>
   );
@@ -132,8 +133,9 @@ function App(props){
   );
 }
 
-ReactDOM.render(
-  <ThemeProvider theme={theme}>
+//ReactDOM.render(
+render(
+<ThemeProvider theme={theme}>
     <App />
   </ThemeProvider>,
   document.getElementById('root')

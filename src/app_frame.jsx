@@ -73,21 +73,21 @@ export default function AppFrame(props){
         <div className={classes.toolbar} />
         <Divider />
         <List>
-        <ListItem component="a" href="/simulation">
+        <ListItem component="a" href="simulation.html">
             <ListItemIcon><PlayCircleOutlineIcon /></ListItemIcon>
             <ListItemText primary="シミュレーション" />
           </ListItem>
-          <ListItem component="a" href="/schedule">
+          <ListItem component="a" href="schedule.html">
             <ListItemIcon><AccessTimeIcon /></ListItemIcon>
             <ListItemText primary="加工工程管理" />
           </ListItem>
-          <ListItem component="a" href="/process">
+          <ListItem component="a" href="process.html">
             <ListItemIcon><InboxIcon /></ListItemIcon>
-            <ListItemText primary="プロセス管理" />
+            <ListItemText primary="マシン管理" />
           </ListItem>
-          <ListItem component="a" href="/process_config">
+          <ListItem component="a" href="process_config.html">
             <ListItemIcon><SettingsIcon /></ListItemIcon>
-            <ListItemText primary="プロセス設定管理" />
+            <ListItemText primary="マシン設定管理" />
           </ListItem>
           
         </List>

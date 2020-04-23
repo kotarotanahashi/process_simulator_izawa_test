@@ -37,7 +37,7 @@ export default function SimpleExpansionPanel(props) {
                 <Typography className={classes.heading}>{process_history.name}の実行履歴</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
-                <ProcessTable rows={process_history.rows} cols={props.cols} />
+                <ProcessTable rows={process_history.rows} cols={process_history.cols} />
             </ExpansionPanelDetails>
             </ExpansionPanel>
         )}

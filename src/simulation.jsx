@@ -24,7 +24,11 @@ export default class SimulationManager extends React.Component {
         super(props);
 
         this.state = {
-            rows: [],
+            rows: [
+                {item_name: "品番01420-40710", schedule_id: 1, length: 13},
+                {item_name: "品番060027-0031", schedule_id: 2, length: 3},
+                {item_name: "品番GN642-00600-H", schedule_id: 3, length: 24}
+            ],
             selectedDate: "2020 4/20 07:30:00",
             show_result: false,
             show_circular: false
@@ -37,8 +41,9 @@ export default class SimulationManager extends React.Component {
         ]
         
         this.schedules = {
-            1: {name: "schedule1"},
-            2: {name: "schedule2"}
+            1: {name: "品番01420-40710用工程"},
+            2: {name: "品番060027-0031用工程"},
+            3: {name: "品番GN642-00600-H用工程"}
         };
 
         this.history_cols = [
@@ -50,19 +55,43 @@ export default class SimulationManager extends React.Component {
             {
                 name: "メッキ1",
                 rows: [
-                    {item_name: "item0", action: "開始", time: "AM07:30"}
+                    {item_name: "品番01420-40710_0", action: "開始", time: "AM07:30"},
+                    {item_name: "品番01420-40710_1", action: "開始", time: "AM07:31"},
+                    {item_name: "品番01420-40710_2", action: "開始", time: "AM07:32"},
+                    {item_name: "品番060027-0031_0", action: "開始", time: "AM07:33"},
+                    {item_name: "品番060027-0031_1", action: "開始", time: "AM07:34"},
+                    {item_name: "品番060027-0031_2", action: "開始", time: "AM07:35"},
+                    {item_name: "品番GN642-00600-H_0", action: "開始", time: "AM07:36"},
+                    {item_name: "品番GN642-00600-H_1", action: "開始", time: "AM07:37"},
+                    {item_name: "品番GN642-00600-H_2", action: "開始", time: "AM07:38"}
+                ],
+                cols: [
+                    {name: "item_name", ja_name: "アイテム名"},
+                    {name: "action", ja_name: "アクション"},
+                    {name: "time", ja_name: "時刻"}
                 ]
             },
             {
                 name: "オーブン1",
                 rows: [
-                    {item_name: "item0", action: "開始", time: "AM07:30"}
+                    {schedule_id: "1", start_time: "AM11:30", finish_time: "PM03:30"},
+                    {schedule_id: "2", start_time: "PM04:30", finish_time: "PM05:30"}
+                ],
+                cols: [
+                    {name: "schedule_id", ja_name: "スケジュールid"},
+                    {name: "start_time", ja_name: "開始時刻"},
+                    {name: "finish_time", ja_name: "終了時刻"}
                 ]
             },
             {
                 name: "オーブン2",
                 rows: [
-                    {item_name: "item0", action: "開始", time: "AM07:30"}
+                    {schedule_id: "1", start_time: "AM10:30", finish_time: "PM02:30"}
+                ],
+                cols: [
+                    {name: "schedule_id", ja_name: "スケジュールid"},
+                    {name: "start_time", ja_name: "開始時刻"},
+                    {name: "finish_time", ja_name: "終了時刻"}
                 ]
             }
         ]

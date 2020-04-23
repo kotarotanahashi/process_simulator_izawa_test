@@ -117,20 +117,45 @@ export default class SchedulesManager extends React.Component {
                 1:
                     {
                         id: 1,
-                        name: "schedule1",
+                        name: "品番01420-40710用工程",
                         steps: [
-                            {process_id: 1, process_conf_id: 2},
-                            {process_id: 2, process_conf_id: 1}
+                            {process_id: 1, process_conf_id: 4},
+                            {process_id: 3, process_conf_id: 6}
+                        ]
+                    },
+                2:
+                    {
+                        id: 2,
+                        name: "品番060027-0031用工程",
+                        steps: [
+                            {process_id: 1, process_conf_id: 1},
+                            {process_id: 2, process_conf_id: 5}
+                        ]
+                    },
+                3:
+                    {
+                        id: 3,
+                        name: "品番GN642-00600-H用工程",
+                        steps: [
+                            {process_id: 1, process_conf_id: 1},
+                            {process_id: 2, process_conf_id: 5}
                         ]
                     }
             },
             processes: {
-                1: {name: "process1"},
-                2: {name: "process2"}
+                1: {name: "メッキ"},
+                2: {name: "オーブン1"},
+                3: {name: "オーブン2"}
             },
             process_confs: {
-                1: {name: "conf1"},
-                2: {name: "conf2"}
+                1: {name: "メッキ120秒"},
+                2: {name: "メッキ140秒"},
+                3: {name: "メッキ150秒"},
+                4: {name: "メッキ180秒"},
+                5: {name: "スケジュール=1, 120分"},
+                6: {name: "スケジュール=1, 180分"},
+                7: {name: "スケジュール=2, 120分"},
+                8: {name: "スケジュール=2, 180分"}
             }
         }
 
@@ -140,7 +165,7 @@ export default class SchedulesManager extends React.Component {
         this.text_fields = (
             <TextField
             autoFocus
-            label="スケジュール名"
+            label="工程名"
             inputRef={el => this.textField = el}
             fullWidth
             />
