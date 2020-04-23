@@ -117,7 +117,7 @@ let Home = () => {
 
 function App(props){
   let content = (
-    <BrowserRouter basename={window.location.pathname}>
+    <BrowserRouter>
     <div>
       <br/><br/><br/>
       <Route path="/" exact component={ProcessPage} />
