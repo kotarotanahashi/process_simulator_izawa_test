@@ -116,25 +116,33 @@ let Home = () => {
 }
 
 function App(props){
+  let [page, setPage] = React.useState("process");
+
+
   let content = (
-    <BrowserRouter>
     <div>
       <br/><br/><br/>
-      <Route path="/" exact component={ProcessPage} />
-      <Route path="/process.html" component={ProcessPage} />
-      <Route path="/process_config.html" component={ProcessConfigPage} />
-      <Route path="/schedule.html" component={SchedulePage} />
-      <Route path="/simulation.html" component={SimulationPage} />
+      {page == "process" &&
+        <ProcessPage />
+      }
+      {page == "process_config" &&
+        <ProcessConfigPage />
+      }
+      {page == "schedule" &&
+        <SchedulePage />
+      }
+      {page == "simulation" &&
+        <SimulationPage />
+      }
     </div>
-    </BrowserRouter>
   );
   return(
-    <AppFrame content={content}/>
+    <AppFrame setPage={setPage} content={content}/>
   );
 }
 
-//ReactDOM.render(
-render(
+ReactDOM.render(
+//render(
 <ThemeProvider theme={theme}>
     <App />
   </ThemeProvider>,

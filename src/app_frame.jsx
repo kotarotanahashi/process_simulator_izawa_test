@@ -67,25 +67,31 @@ export default function AppFrame(props){
     const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
     };
+
+    let handleClick = (e) => {
+      console.log("handle click");
+      console.log(e);
+      props.setPage(e);
+    }
   
     const drawer = (
       <div>
         <div className={classes.toolbar} />
         <Divider />
         <List>
-        <ListItem component="a" href="simulation.html">
+        <ListItem button onClick={() => handleClick("simulation")}>
             <ListItemIcon><PlayCircleOutlineIcon /></ListItemIcon>
             <ListItemText primary="シミュレーション" />
           </ListItem>
-          <ListItem component="a" href="schedule.html">
+          <ListItem button onClick={() => handleClick("schedule")}>
             <ListItemIcon><AccessTimeIcon /></ListItemIcon>
             <ListItemText primary="加工工程管理" />
           </ListItem>
-          <ListItem component="a" href="process.html">
+          <ListItem button onClick={() => handleClick("process")}>
             <ListItemIcon><InboxIcon /></ListItemIcon>
             <ListItemText primary="マシン管理" />
           </ListItem>
-          <ListItem component="a" href="process_config.html">
+          <ListItem button onClick={() => handleClick("process_config")}>
             <ListItemIcon><SettingsIcon /></ListItemIcon>
             <ListItemText primary="マシン設定管理" />
           </ListItem>
