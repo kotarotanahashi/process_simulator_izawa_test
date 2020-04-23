@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://kotarotanahashi.github.io/process_simulator_izawa_test",
+  "homepage": "https://kotarotanahashi.github.io/process_simulator_izawa_test",
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
     "@material-ui/core": "^4.9.11",
