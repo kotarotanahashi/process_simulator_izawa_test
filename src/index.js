@@ -121,10 +121,10 @@ function App(props){
     <div>
       <br/><br/><br/>
       <Route path="/" exact component={Home} />
-      <Route path="/process.html" component={ProcessPage} />
-      <Route path="/process_config.html" component={ProcessConfigPage} />
-      <Route path="/schedule.html" component={SchedulePage} />
-      <Route path="/simulation.html" component={SimulationPage} />
+      <Route path="/process_simulator_izawa_test/process.html" component={ProcessPage} />
+      <Route path="/process_simulator_izawa_test/process_config.html" component={ProcessConfigPage} />
+      <Route path="/process_simulator_izawa_test/schedule.html" component={SchedulePage} />
+      <Route path="/process_simulator_izawa_test/simulation.html" component={SimulationPage} />
     </div>
     </BrowserRouter>
   );
