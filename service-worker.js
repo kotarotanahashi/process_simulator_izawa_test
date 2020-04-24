@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/process_simulator_izawa_test/precache-manifest.58f50b36a1daea7eceb19f8d1d7257e6.js"
+  "/process_simulator_izawa_test/precache-manifest.746f1ebf781c9b10927d3757ff97f789.js"
 );
 
 self.addEventListener('message', (event) => {
