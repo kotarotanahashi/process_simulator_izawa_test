@@ -25,9 +25,9 @@ export default class SimulationManager extends React.Component {
 
         this.state = {
             rows: [
-                {item_name: "品番01420-40710", schedule_id: 1, length: 13},
-                {item_name: "品番060027-0031", schedule_id: 2, length: 3},
-                {item_name: "品番GN642-00600-H", schedule_id: 3, length: 24}
+                {item_name: "品番076764-7867", schedule_id: 1, length: 13},
+                {item_name: "品番9897-7667", schedule_id: 2, length: 3},
+                {item_name: "品番YF98787-8777", schedule_id: 3, length: 24}
             ],
             selectedDate: "2020 4/20 07:30:00",
             show_result: false,
@@ -41,9 +41,9 @@ export default class SimulationManager extends React.Component {
         ]
         
         this.schedules = {
-            1: {name: "品番01420-40710用工程"},
-            2: {name: "品番060027-0031用工程"},
-            3: {name: "品番GN642-00600-H用工程"}
+            1: {name: "品番076764-7867用工程"},
+            2: {name: "品番9897-7667用工程"},
+            3: {name: "品番YF98787-8777用工程"}
         };
 
         this.history_cols = [
@@ -55,15 +55,15 @@ export default class SimulationManager extends React.Component {
             {
                 name: "メッキ1",
                 rows: [
-                    {item_name: "品番01420-40710_0", action: "開始", time: "AM07:30"},
-                    {item_name: "品番01420-40710_1", action: "開始", time: "AM07:31"},
-                    {item_name: "品番01420-40710_2", action: "開始", time: "AM07:32"},
-                    {item_name: "品番060027-0031_0", action: "開始", time: "AM07:33"},
-                    {item_name: "品番060027-0031_1", action: "開始", time: "AM07:34"},
-                    {item_name: "品番060027-0031_2", action: "開始", time: "AM07:35"},
-                    {item_name: "品番GN642-00600-H_0", action: "開始", time: "AM07:36"},
-                    {item_name: "品番GN642-00600-H_1", action: "開始", time: "AM07:37"},
-                    {item_name: "品番GN642-00600-H_2", action: "開始", time: "AM07:38"}
+                    {item_name: "品番076764-7867_0", action: "開始", time: "AM07:30"},
+                    {item_name: "品番076764-7867_1", action: "開始", time: "AM07:31"},
+                    {item_name: "品番076764-7867_2", action: "開始", time: "AM07:32"},
+                    {item_name: "品番9897-7667_0", action: "開始", time: "AM07:33"},
+                    {item_name: "品番9897-7667_1", action: "開始", time: "AM07:34"},
+                    {item_name: "品番9897-7667_2", action: "開始", time: "AM07:35"},
+                    {item_name: "品番YF98787-8777_0", action: "開始", time: "AM07:36"},
+                    {item_name: "品番YF98787-8777_1", action: "開始", time: "AM07:37"},
+                    {item_name: "品番YF98787-8777_2", action: "開始", time: "AM07:38"}
                 ],
                 cols: [
                     {name: "item_name", ja_name: "アイテム名"},

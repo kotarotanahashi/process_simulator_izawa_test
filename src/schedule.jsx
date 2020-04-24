@@ -117,7 +117,7 @@ export default class SchedulesManager extends React.Component {
                 1:
                     {
                         id: 1,
-                        name: "品番01420-40710用工程",
+                        name: "品番076764-7867用工程",
                         steps: [
                             {process_id: 1, process_conf_id: 4},
                             {process_id: 3, process_conf_id: 6}
@@ -126,7 +126,7 @@ export default class SchedulesManager extends React.Component {
                 2:
                     {
                         id: 2,
-                        name: "品番060027-0031用工程",
+                        name: "品番9897-7667用工程",
                         steps: [
                             {process_id: 1, process_conf_id: 1},
                             {process_id: 2, process_conf_id: 5}
@@ -135,7 +135,7 @@ export default class SchedulesManager extends React.Component {
                 3:
                     {
                         id: 3,
-                        name: "品番GN642-00600-H用工程",
+                        name: "品番YF98787-8777用工程",
                         steps: [
                             {process_id: 1, process_conf_id: 1},
                             {process_id: 2, process_conf_id: 5}
